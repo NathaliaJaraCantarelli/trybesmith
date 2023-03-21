@@ -7,8 +7,6 @@ export default class ProductsController {
 
   public getAll = async (_req: Request, res: Response) => {
     const products = await this.productService.getAll();
-    console.log(products);
-    
     res.status(statusCodes.OK).json(products);
   };
 
