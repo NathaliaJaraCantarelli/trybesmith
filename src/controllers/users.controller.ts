@@ -16,4 +16,15 @@ export default class UserController {
     }
     return res.status(statusCodes.ERROR).json('Erro ao criar usuário');
   };
+
+  public verifyLogin = async (req: Request, res: Response) => {
+    const login = req.body;
+    const { username, password } = await this.userService.verifyLogin(login);
+    
+    if (!username) {
+      return res.status(statusCodes.UNAUTHORIZED).json({ message: 'Username or password invalid' });
+    }
+    const token = authToken.generateToken({ username, password });
+    return res.status(statusCodes.OK).json({ token });
+  };
 }

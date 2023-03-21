@@ -1,6 +1,6 @@
 import OrderWithId from '../interfaces/orderWithId.interface';
 import connection from '../models/connection';
-import OrdersModel from '../models/orders.models';
+import OrdersModel from '../models/orders.model';
 
 export default class OrdersService {
   public model: OrdersModel;
