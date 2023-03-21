@@ -15,8 +15,6 @@ export default class ProductService {
   }
 
   public create(product: Product): Promise<Product> {
-    console.log(this.model.create(product));
-    
     return this.model.create(product);
   }
 }
