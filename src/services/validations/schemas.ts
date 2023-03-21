@@ -12,4 +12,10 @@ const user = Joi.object({
   password: Joi.string().min(8).required(),
 });
 
-export default { product, user };
+const order = Joi.object({
+  productsIds: Joi.array().min(1).required().messages({
+    'array.min': '"productsIds" must include only numbers',
+  }),
+});
+
+export default { product, user, order };

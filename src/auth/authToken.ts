@@ -15,4 +15,6 @@ const generateToken = (login: Login) => {
   return token;
 };
 
-export default { generateToken };
+const verifyToken = (token: string) => jwt.verify(token, secret);
+
+export default { generateToken, verifyToken };

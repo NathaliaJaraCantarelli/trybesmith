@@ -31,4 +31,14 @@ export default class UsersModel {
     if (Object.keys(id).length > 0) return { username, password };
     return { username: '', password: '' };
   }
+
+  public async findId(username: string): Promise<number> {
+    const result = await this.connection.execute<ResultSetHeader>(
+      'SELECT id FROM Trybesmith.users WHERE username = ?',
+      [username],
+    );
+    const [dataInserted] = result;
+    const { id } = Object.values(dataInserted)[0];
+    return id;
+  }
 }

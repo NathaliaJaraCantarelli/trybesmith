@@ -17,4 +17,8 @@ export default class UsersService {
   public async create(user: User): Promise<User> {
     return this.model.create(user);
   }
+
+  public async findId(user: string): Promise<number> {
+    return this.model.findId(user);
+  }
 }
